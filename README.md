@@ -23,11 +23,8 @@ docker build -t podulator/dingux-builder:1.0.0 .
 Change into your existing open dingux build root directory, and run something like ....
 
 ```
-docker run -ti -v `pwd`:/buildroot --user 1000 podulator/dingux-builder:1.0.0 bash
+docker run -ti -v `pwd`:/buildroot --user `id -u` podulator/dingux-builder:1.0.0 bash
 ```
-
-changing the `--user 1000` for your users gid.
-
 
 Now you can issue our buildroot commands, because you'll be in yr code folder
 
