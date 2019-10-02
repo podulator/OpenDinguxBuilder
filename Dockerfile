@@ -65,6 +65,7 @@ RUN cd /opt \
 	&& rm -f ./opendingux-gcw0-toolchain.2014-08-20.tar.bz2
 
 ENV PATH="/opt/gcw0-toolchain/usr/bin:${PATH}"
+ENV CC=mipsel-linux-gcc
 
 # fix locales
 RUN sed -i "s/^# en_GB.UTF-8/en_GB.UTF-8/" /etc/locale.gen && locale-gen && update-locale LANG=en_GB.UTF-8
