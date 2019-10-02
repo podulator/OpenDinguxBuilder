@@ -20,6 +20,8 @@ docker build -t podulator/dingux-builder:1.0.0 .
 
 ## How to use
 
+### Buildroot
+
 Change into your existing open dingux build root directory, and run something like ....
 
 ```
@@ -31,7 +33,12 @@ Now you can issue our buildroot commands, because you'll be in yr code folder
 - `make rg350_defconfig`
 - `make`
 
+### Stand alone apps
+
+It also has a full mips tool chain installed under `/opt/gcw0-toolchain/usr/bin`, which is on the PATH
+
+### Connecting
+
 To detach from the container, use `ctrl-D`.
 
 To reattach to it, run `docker ps` to get a list of running containers, find this one, and run `docker attach container_id`.
-
