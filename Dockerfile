@@ -41,11 +41,14 @@ RUN apt-get update && apt-get install -y -q \
     gcc-multilib \
     gettext \
     libc6-dev-i386 \
+    libxext-dev \
     mercurial \
     mlocate \
+    nano \
     openjdk-8-jdk \
     subversion \
     texinfo \
+    tree \
 	vim
 
 # shave some space
