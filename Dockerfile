@@ -41,6 +41,7 @@ RUN apt-get update && apt-get install -y -q \
     gcc-multilib \
     gettext \
     libc6-dev-i386 \
+    libgmp3-dev \
     libxext-dev \
     mercurial \
     mlocate \
