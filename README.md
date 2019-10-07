@@ -15,17 +15,21 @@ To create the image use the `docker build` command, and add a tag in the format 
 eg.
 
 ```
-docker build -t podulator/dingux-builder:1.0.0 .
+docker build -t podulator/dingux-builder:1.0.0 --build-arg user_id=`id -u` .
 ```
 
 ## How to use
+
+- username and password are : `docker`
+- user `docker` is in users (1000) group
+- sudo is working
 
 ### Buildroot
 
 Change into your existing open dingux build root directory, and run something like ....
 
 ```
-docker run -ti -v `pwd`:/buildroot --user `id -u` podulator/dingux-builder:1.0.0 bash
+docker run -ti -v `pwd`:/buildroot --user docker podulator/dingux-builder:1.0.0 bash
 ```
 
 Now you can issue our buildroot commands, because you'll be in yr code folder
@@ -42,3 +46,7 @@ It also has a full mips tool chain installed under `/opt/gcw0-toolchain/usr/bin`
 To detach from the container, use `ctrl-D`.
 
 To reattach to it, run `docker ps` to get a list of running containers, find this one, and run `docker attach container_id`.
+
+### Known inconsistencies
+
+- Depending on which buildroot you're using, you may need to `sudo apt update && sudo apt install libgmp3-dev`

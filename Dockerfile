@@ -2,6 +2,8 @@ FROM debian:stretch
 
 ENV JAVA_VERSION 1.11.0
 
+ARG user_id=1000
+
 # Install mandatory dependencies
 # https://buildroot.org/downloads/manual/manual.html#requirement-mandatory
 RUN apt-get update && apt-get install -y -q \
@@ -41,13 +43,13 @@ RUN apt-get update && apt-get install -y -q \
     gcc-multilib \
     gettext \
     libc6-dev-i386 \
-    libgmp3-dev \
     libxext-dev \
     mercurial \
     mlocate \
     nano \
     openjdk-8-jdk \
     subversion \
+    sudo \
     texinfo \
     tree \
 	vim
@@ -70,6 +72,8 @@ ENV CC=mipsel-linux-gcc
 
 # fix locales
 RUN sed -i "s/^# en_GB.UTF-8/en_GB.UTF-8/" /etc/locale.gen && locale-gen && update-locale LANG=en_GB.UTF-8
+
+RUN useradd -m docker -u ${user_id} -g users -G sudo && echo "docker:docker" | chpasswd
 
 WORKDIR /buildroot
 
