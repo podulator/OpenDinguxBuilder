@@ -67,7 +67,7 @@ RUN cd /opt \
 	&& tar jxvf ./opendingux-gcw0-toolchain.2014-08-20.tar.bz2 \
 	&& rm -f ./opendingux-gcw0-toolchain.2014-08-20.tar.bz2
 
-ENV PATH="/opt/gcw0-toolchain/usr/bin:/opt/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/bin:${PATH}"
+ENV PATH="/opt/gcw0-toolchain/usr/bin:${PATH}:/opt/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/bin"
 ENV CC=mipsel-linux-gcc
 
 # fix locales
