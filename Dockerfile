@@ -41,8 +41,10 @@ RUN apt-get update && apt-get install -y -q \
 	bzr \
     flex \
     gcc-multilib \
+    genext2fs \
     gettext \
     libc6-dev-i386 \
+    libvorbis-dev \
     libxext-dev \
     mercurial \
     mlocate \
